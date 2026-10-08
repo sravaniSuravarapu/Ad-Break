@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --bg: #eef1f8;
+  --sidebar: #ffffff;
+  --card: #ffffff;
+  --card-2: #f7f8fd;
+  --text: #16192b;
+  --muted: #5d6787;
+  --line: #e3e7f2;
+  --accent: #5b4dff;
+  --accent-soft: #efeaff;
+  --cyan: #0b7f98;
+  --cyan-soft: #e5f7fb;
+  --pink: #d12b6b;
+  --green: #0c8f62;
+  --amber: #9a6700;
+  --shadow: 0 16px 40px rgba(22, 28, 58, 0.08);
+  --hero: linear-gradient(135deg, #6d5efc 0%, #b06bff 55%, #f0a0d8 100%);
+}
+
+.dark {
+  color-scheme: dark;
+  --bg: #0c1022;
+  --sidebar: #12162b;
+  --card: #171c33;
+  --card-2: #1d2442;
+  --text: #f4f6ff;
+  --muted: #9aa3c7;
+  --line: rgba(255, 255, 255, 0.08);
+  --accent: #8b7cff;
+  --accent-soft: rgba(139, 124, 255, 0.16);
+  --cyan: #3ce0ff;
+  --cyan-soft: rgba(60, 224, 255, 0.12);
+  --pink: #ff6b9d;
+  --green: #3ddc97;
+  --amber: #ffc857;
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+  --hero: linear-gradient(135deg, #5b4dff 0%, #9a4dff 48%, #ff7ad9 100%);
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+}
+
+* {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.2s ease;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease, color 0.2s ease;
+}
+
+.page-in {
+  animation: rise 0.45s ease both;
+}
+
+.stagger > * {
+  animation: rise 0.45s ease both;
+}
+
+.stagger > *:nth-child(2) { animation-delay: 0.05s; }
+.stagger > *:nth-child(3) { animation-delay: 0.1s; }
+.stagger > *:nth-child(4) { animation-delay: 0.15s; }
+
+.modal-in {
+  animation: pop 0.22s ease both;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes pop {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  .page-in,
+  .stagger > *,
+  .modal-in {
+    animation: none !important;
+    transition: none !important;
+  }
+}

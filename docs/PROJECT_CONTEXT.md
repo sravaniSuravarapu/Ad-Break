@@ -94,3 +94,15 @@ Agency commissions, invoicing, programmatic/digital ads, automatic optimisation,
 
 ## Gaps Added to Original Brief
 Advertiser category and competitor rule (BR-05), budget formula with rate card (BR-06), as-run marking and delivery (BR-09), concurrency rule (BR-10), campaign/booking statuses, dayparts.
+
+## MVP Decisions
+- Rate card stores price per 10 seconds for morning, daytime, prime, and late_night. Booking cost uses the stored rate.
+- Competitor clash is an exact category string match (BR-05).
+- Bookings can be cancelled, rebooked, and moved. Move and rebook re-run the booking rules. Rows are not deleted.
+- Agency is a table. Advertisers and campaigns may reference an agency.
+- Every table has created_at and updated_at in UTC. created_by and changed_by are UUID foreign keys to users. They are nullable only when no user is authenticated (self sign-up).
+- booking_status_history.old_status is nullable.
+- Unique: users.email, rate_card.daypart, channels.name, advertisers.name, ad break channel + date + start time.
+- All three roles may sign up and can log in immediately. is_active defaults to true so later approval can be added in the login check.
+- Demo rate card (INR per 10s): morning 8000, daytime 6000, prime 15000, late_night 5000.
+- Demo users (dev only): sales@example.com, traffic@example.com, revenue@example.com, password Demo@12345.
