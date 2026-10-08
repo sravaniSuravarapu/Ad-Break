@@ -1,0 +1,13 @@
+---
+description: Frontend conventions
+globs: frontend/src/**
+alwaysApply: false
+---
+
+- TypeScript strict.
+- No business rules in the UI (API is the source of truth).
+- Show the exact rejection reason and remaining seconds returned by the API.
+- TanStack Query for all API calls.
+- Tailwind only.
+- Role-based routes for the three roles.
+- Ask before adding any library.

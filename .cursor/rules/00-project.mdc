@@ -1,0 +1,24 @@
+---
+description: Stack, architecture, and behaviour rules for adbreak-manager
+alwaysApply: true
+---
+
+# adbreak-manager (Ad Break & Campaign Booking Manager)
+
+## Stack
+- Backend: Python 3.12, FastAPI + Pydantic v2, SQLAlchemy 2.0 + Alembic, PostgreSQL (row-level locking for BR-10), JWT (python-jose or PyJWT) with role dependencies, pytest + httpx, uv or pip + ruff
+- Frontend: React 18 + Vite + TypeScript, Tailwind CSS, TanStack Query, React Router, Recharts, React Hook Form + Zod, Vitest + React Testing Library
+- Frontend uses only endpoints in the backend OpenAPI schema
+- Local setup: Docker Compose (Postgres + API)
+
+## Architecture
+routers -> services -> models; business rules only in services/
+
+## Behaviour
+1. Never assume. If anything is unclear or missing, STOP and ask me numbered questions; log unanswered ones in docs/OPEN_QUESTIONS.md.
+2. BR-01..BR-10 in docs/PROJECT_CONTEXT.md are the source of truth; cite rule IDs in code comments and tests.
+3. Be token-efficient: no long explanations, never re-print unchanged files, show only changed code.
+4. One module at a time; wait for my approval before the next.
+5. Type hints everywhere, small functions, no unused code.
+6. Do not run git commands (git is not installed). Do not install packages or change config outside the task without asking.
+7. Do not add fields, endpoints or features not in the context without asking.

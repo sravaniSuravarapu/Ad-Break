@@ -1,0 +1,14 @@
+---
+description: Backend Python conventions
+globs: backend/app/**/*.py
+alwaysApply: false
+---
+
+- Thin routers.
+- Pydantic v2 schemas for all I/O.
+- SQLAlchemy 2.0 style.
+- Alembic for every schema change.
+- One shared role-check dependency.
+- Capacity check uses with_for_update() inside a transaction (BR-10).
+- Clear rejection reasons incl. remaining seconds.
+- ruff-clean.

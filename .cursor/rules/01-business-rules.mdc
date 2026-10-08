@@ -1,0 +1,37 @@
+---
+description: Business rules, statuses, KPIs, and glossary
+globs: backend/app/services/**,backend/tests/**,frontend/src/**
+alwaysApply: false
+---
+
+## Glossary
+- Ad break: commercial pause with capacity in seconds.
+- Spot: one ad of fixed length (10/15/20/30/60 s).
+- Release Order (RO): advertiser's booking instruction.
+- Daypart: Morning, Daytime, Prime 19:00-23:00, Late night.
+- Rate card: price per 10 seconds per daypart.
+- Competitor clash: two advertisers of the same category in one break.
+- As-run: confirmation of what actually aired.
+- Make-good: free replacement for a missed spot.
+
+## Business Rules
+- BR-01 Campaign end date >= start date; spot length in {10, 15, 20, 30, 60} s.
+- BR-02 Break date within campaign dates.
+- BR-03 Booked seconds in a break <= break capacity (default 120 s); rejection shows remaining seconds.
+- BR-04 Max one spot per advertiser per break.
+- BR-05 No two advertisers of the same category in the same break.
+- BR-06 Spot cost = (spot length / 10) x rate per 10 s for the break's daypart; total booked cost <= campaign budget.
+- BR-07 Booked spots <= planned spots.
+- BR-08 Cancelled/completed campaigns cannot be booked.
+- BR-09 Only Traffic Manager creates breaks and marks Aired/Missed; booking can be cancelled only before break date.
+- BR-10 Capacity check done in a transaction so two simultaneous bookings cannot overbook.
+
+## Statuses
+- Campaign: Draft -> Active -> Completed | Cancelled.
+- Booking: Booked -> Aired | Missed | Cancelled.
+
+## KPIs
+- Break fill % = booked seconds / capacity (by channel/date/daypart).
+- Campaign delivery % = aired spots / planned spots; booked vs planned.
+- Budget utilisation % = booked cost / budget.
+- Revenue by advertiser/category/channel = aired spots x spot cost.

@@ -1,0 +1,10 @@
+---
+description: Backend testing conventions
+globs: backend/tests/**
+alwaysApply: false
+---
+
+- pytest + httpx.
+- One test per business rule named with its BR ID.
+- A concurrency test for BR-10.
+- Run ruff and pytest after each module and report only failures.
