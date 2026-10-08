@@ -20,5 +20,5 @@ routers -> services -> models; business rules only in services/
 3. Be token-efficient: no long explanations, never re-print unchanged files, show only changed code.
 4. One module at a time; wait for my approval before the next.
 5. Type hints everywhere, small functions, no unused code.
-6. Do not run git commands (git is not installed). Do not install packages or change config outside the task without asking.
+6. Do not run git commands; I commit myself. Do not install packages or change config outside the task without asking.
 7. Do not add fields, endpoints or features not in the context without asking.
