@@ -16,7 +16,7 @@ export function AuthLayout({
   const { theme, toggle } = useTheme()
   return (
     <div className="grid min-h-screen lg:grid-cols-2">
-      <section className="relative hidden overflow-hidden p-10 text-white lg:flex lg:flex-col lg:justify-between" style={{ background: 'var(--hero)' }}>
+      <section className="hero-live relative hidden overflow-hidden p-10 text-white lg:flex lg:flex-col lg:justify-between">
         <p className="text-sm font-semibold tracking-wide">AdBreak</p>
         <div className="page-in">
           <h1 className="max-w-md text-5xl font-extrabold leading-tight">Book the break. Keep the promise.</h1>

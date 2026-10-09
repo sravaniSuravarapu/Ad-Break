@@ -38,11 +38,11 @@ export function App() {
         <Route path="/" element={<DashboardPage />} />
         <Route path="/availability" element={<AvailabilityPage />} />
         <Route path="/bookings" element={<BookingsPage />} />
-        <Route path="/campaigns" element={<CampaignsPage />} />
+        <Route path="/campaigns" element={<RequireRole roles={['ad_sales_executive', 'ad_revenue_head']}><CampaignsPage /></RequireRole>} />
         <Route path="/advertisers" element={<RequireRole roles={['ad_sales_executive', 'ad_revenue_head']}><AdvertisersPage /></RequireRole>} />
         <Route path="/agencies" element={<RequireRole roles={['ad_sales_executive', 'ad_revenue_head']}><AgenciesPage /></RequireRole>} />
         <Route path="/breaks" element={<RequireRole roles={['traffic_manager']}><BreaksPage /></RequireRole>} />
-        <Route path="/rate-card" element={<RateCardPage />} />
+        <Route path="/rate-card" element={<RequireRole roles={['ad_sales_executive', 'ad_revenue_head']}><RateCardPage /></RequireRole>} />
         <Route path="/reports" element={<ReportsPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />

@@ -101,7 +101,7 @@ export function Stat({
     pink: 'bg-[var(--pink)]',
   }[tone]
   return (
-    <article className="rounded-3xl border border-[var(--line)] bg-[var(--card)] p-4 shadow-[var(--shadow)] hover:-translate-y-0.5">
+    <article className="float-card rounded-3xl border border-[var(--line)] bg-[var(--card)] p-4 shadow-[var(--shadow)] hover:shadow-[var(--shadow)]">
       <div className={`mb-4 h-1.5 w-10 rounded-full ${toneClass}`} />
       <p className="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">{label}</p>
       <p className="mt-2 text-2xl font-extrabold">{value}</p>
